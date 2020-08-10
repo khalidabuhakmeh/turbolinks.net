@@ -1,0 +1,47 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    var time = Request.Query.Where(x => x.Key == "time").SelectMany(x => x.Value).FirstOrDefault();
+    var hasTime = time != null;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    
+    @if (hasTime)
+    {
+        <h2>@time</h2>
+    }
+</div>
+
+@if (Model.HasName)
+{
+    <h2>Hello, @Model.Name</h2>
+}
+
+<form id="form" method="post" asp-controller="Values" asp-action="Index">
+    <button class="btn btn-primary">
+        Submit
+    </button>
+</form>
+
+@section Scripts
+{
+    <script type="text/javascript">
+     $(function () {
+         
+        $("#form").submit(function(e) {
+            var action = $(this).attr("action");
+            var data = $(this).serialize();
+            var callback = function(data) {
+                console.log(data);
+            };
+            
+            $.post(action, data, callback);                 
+            e.preventDefault();
+        });
+      });
+    </script>    
+}
