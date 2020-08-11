@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using TurboLinks.Net;
+using Turbolinks.Net;
 
 namespace PutItInTurbo
 {
@@ -25,10 +25,8 @@ namespace PutItInTurbo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages(options =>
-            {
-            });
-            services.AddSingleton<TurboLinksMiddleware>();
+            services.AddRazorPages();
+            services.AddTurbolinks();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,7 +49,7 @@ namespace PutItInTurbo
             app.UseRouting();
             
             
-            app.UseTurboLinks();
+            app.UseTurbolinks();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
