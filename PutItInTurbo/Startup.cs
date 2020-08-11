@@ -47,11 +47,9 @@ namespace PutItInTurbo
             app.UseStaticFiles();
             
             app.UseRouting();
-            
-            
-            app.UseTurbolinks();
             app.UseAuthorization();
-
+            app.UseTurbolinks();
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
