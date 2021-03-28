@@ -26,22 +26,3 @@
         Submit
     </button>
 </form>
-
-@section Scripts
-{
-    <script type="text/javascript">
-     $(function () {
-         
-        $("#form").submit(function(e) {
-            var action = $(this).attr("action");
-            var data = $(this).serialize();
-            var callback = function(data) {
-                console.log(data);
-            };
-            
-            $.post(action, data, callback);                 
-            e.preventDefault();
-        });
-      });
-    </script>    
-}
