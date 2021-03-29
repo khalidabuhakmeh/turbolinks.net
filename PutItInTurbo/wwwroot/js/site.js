@@ -16,6 +16,8 @@ $(document).on("submit", "#form", function (e) {
    e.preventDefault();
    let $form = $(this);
    
+   console.log('hijacking form! Should redirect.')
+   
    $.ajax({
        type: $form.attr('method'),
        url: $form.attr('action'),
