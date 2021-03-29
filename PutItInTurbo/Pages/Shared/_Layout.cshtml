@@ -6,14 +6,15 @@
     <title>@ViewData["Title"] - PutItInTurbo</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css"/>
-    
-    <script src="lib/turbolinks/turbolinks.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/turbolinks@5.2.0/dist/turbolinks.min.js" defer></script>
     <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+      src="https://zeptojs.com/zepto.min.js"
+      data-turbolinks-eval="false" 
+      defer></script>
+    <script src="~/js/site.js"
+            asp-append-version="true" 
+            data-turbolinks-eval="false" 
+            defer></script>
 </head>
 <body>
 <header>
@@ -51,6 +52,5 @@
         &copy; 2020 - PutItInTurbo - <a asp-area="" asp-page="/Privacy">Privacy</a>
     </div>
 </footer>
-
 </body>
 </html>

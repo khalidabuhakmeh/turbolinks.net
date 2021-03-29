@@ -11,3 +11,17 @@ document.addEventListener("turbolinks:visit", function(e) {
     console.log(`visit`);
     console.log(e);
 });
+
+$(document).on("submit", "#form", function (e) {
+   e.preventDefault();
+   let $form = $(this);
+   
+   $.ajax({
+       type: $form.attr('method'),
+       url: $form.attr('action'),
+       data: $form.serialize(),
+       success: function (result) {
+           console.log(result);
+       } 
+   });
+});

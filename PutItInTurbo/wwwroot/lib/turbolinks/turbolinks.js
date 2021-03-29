@@ -1175,8 +1175,10 @@ Copyright © 2019 Basecamp, LLC
             if (!this.historyChanged) {
                 var actionForHistory = this.location.isEqualTo(this.referrer) ? "replace" : this.action;
                 var method = this.getHistoryMethodForAction(actionForHistory);
-                method.call(this.controller, this.location, this.restorationIdentifier);
-                this.historyChanged = true;
+                if (method === undefined) {
+                    method.call(this.controller, this.location, this.restorationIdentifier);
+                    this.historyChanged = true;
+                }
             }
         };
         Visit.prototype.issueRequest = function () {

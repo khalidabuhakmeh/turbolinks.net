@@ -21,7 +21,7 @@
     <h2>Hello, @Model.Name</h2>
 }
 
-<form id="form" method="post" asp-controller="Values" asp-action="Index">
+<form id="form" method="post" asp-controller="Values" asp-action="Index" asp-antiforgery="false">
     <button class="btn btn-primary">
         Submit
     </button>
